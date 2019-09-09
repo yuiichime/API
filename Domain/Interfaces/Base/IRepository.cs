@@ -1,14 +1,15 @@
 ﻿using Domain.Entities;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Domain.Interfaces.Base
 {
     public interface IRepository<T> where T : BaseEntity 
     {
-        void Insert(T Obj);
-        void Update(T Obj);
-        void Delete(T Obj);
+        T Insert(T Obj);
+        T Update(T Obj);
+        void Delete(int Id);
         T Select(int Id);
-        IList<T> SelectAll();
+        IList<T> Select();
     }
 }

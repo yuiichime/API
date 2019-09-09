@@ -1,15 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.168
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29230.47
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API.csproj", "{F3C3FEC0-5BF8-40EC-B51F-9DCB301838C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API", "API\API.csproj", "{F3C3FEC0-5BF8-40EC-B51F-9DCB301838C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{8A7BE7A3-5C66-4146-89FB-0314928A1AE8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{8A7BE7A3-5C66-4146-89FB-0314928A1AE8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{4FFA2D5E-C786-45E4-A836-CE0A4A894CA7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure.Data", "Infrastructure.Data\Infrastructure.Data.csproj", "{4FFA2D5E-C786-45E4-A836-CE0A4A894CA7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.csproj", "{65FA5D2A-7B9C-48CF-929A-40CBA573F1BD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service", "Service\Service.csproj", "{65FA5D2A-7B9C-48CF-929A-40CBA573F1BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.CrossCutting", "Infrastructure.CrossCutting\Infrastructure.CrossCutting.csproj", "{14FF533F-EAD7-4928-8A2B-8E8EFAB83082}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{65FA5D2A-7B9C-48CF-929A-40CBA573F1BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{65FA5D2A-7B9C-48CF-929A-40CBA573F1BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{65FA5D2A-7B9C-48CF-929A-40CBA573F1BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14FF533F-EAD7-4928-8A2B-8E8EFAB83082}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14FF533F-EAD7-4928-8A2B-8E8EFAB83082}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14FF533F-EAD7-4928-8A2B-8E8EFAB83082}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14FF533F-EAD7-4928-8A2B-8E8EFAB83082}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

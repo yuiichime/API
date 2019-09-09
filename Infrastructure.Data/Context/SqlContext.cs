@@ -6,19 +6,19 @@ namespace Infrastructure.Context
 {
     public class SqlContext : DbContext
     {
-        private IConfiguration configuration;
-        public SqlContext(IConfiguration config)
+        public SqlContext(DbContextOptions<SqlContext> options) 
+            : base(options)
         {
-            configuration = config;
+            Database.EnsureCreated();
         }
         public DbSet<UserEntity> UserEntity { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            if (!options.IsConfigured)
-            {
-                options.UseSqlServer(configuration.GetConnectionString("Default"));
-            }
+            //if (!options.IsConfigured)
+            //{
+            //    options.UseSqlServer(configuration.GetConnectionString("Default"));
+            //}
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
