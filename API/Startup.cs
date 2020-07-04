@@ -39,7 +39,7 @@ namespace API
             {
             });
             services.AddDbContext<SqlContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default")));
-            services.AddSwaggerDocument();
+            services.AddSwaggerGen();
 
             var mapping = new MapperConfiguration(x =>
             {
@@ -71,8 +71,17 @@ namespace API
             }
             app.UseMvc();
 
-            app.UseOpenApi();
-            app.UseSwaggerUi3();
+            app.UseSwagger();
+
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
+            // specifying the Swagger JSON endpoint.
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                c.DefaultModelsExpandDepth(-1);
+
+            });
+
         }
     }
 }
