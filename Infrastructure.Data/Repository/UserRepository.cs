@@ -3,6 +3,7 @@ using Infrastructure.Context;
 using Infrastructure.Repository;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,13 +16,16 @@ namespace Infrastructure.Data.Repository
         {
             context = _context;
         }
-
-
-        
         public override UserEntity Select(int Id)
         {
             var user = context.Set<UserEntity>().Find(Id);
             user.Password = String.Empty;
+            return user;
+        }
+
+        public UserEntity SelectBy(string login)
+        {
+            var user = context.Set<UserEntity>().Where(x => x.Login == login).FirstOrDefault();
             return user;
         }
     }

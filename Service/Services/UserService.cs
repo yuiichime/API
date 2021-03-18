@@ -12,7 +12,7 @@ namespace Service
     public class UserService
     {
         private readonly UserRepository repository;
-        private IMapper map;
+        private readonly IMapper map;
         public UserService(UserRepository _repository, IMapper _map)
         {
             repository = _repository;
@@ -44,6 +44,20 @@ namespace Service
         {
             return map.Map<User>(repository.Insert(map.Map<UserEntity>(user)));
 
+        }
+
+        public bool ValidateUser(UserEntity user)
+        {
+            var userData = repository.SelectBy(user.Login);
+
+            if (userData != null)
+            {
+                if (userData.Password == user.Password)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

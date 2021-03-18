@@ -6,9 +6,12 @@ using System.Collections.Generic;
 using Infrastructure.CrossCutting.Models;
 using System;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 
 namespace API.Controllers
 {
+    [Authorize]
     public class UserController : BaseController
     {
         private readonly UserService userService;
@@ -19,11 +22,12 @@ namespace API.Controllers
 
         [Route("Get")]
         [HttpGet]
+        [ProducesResponseType(typeof(User), StatusCodes.Status200OK)]
         public  IActionResult GetUser(int Id)
         {
             try
             {
-                return Ok(userService.Get(Id));
+                return new OkObjectResult(userService.Get(Id));
             }
             catch (System.Exception)
             {
@@ -33,12 +37,13 @@ namespace API.Controllers
         }
         [Route("GetAll")]
         [HttpGet]
+        [ProducesResponseType(typeof(IList<User>), StatusCodes.Status200OK)]
         public IActionResult GetAllUser()
         {
             try
             {
                 var result = userService.GetAll();
-                return Ok(result);
+                return new OkObjectResult(result);
             }
             catch (System.Exception)
             {
@@ -54,7 +59,7 @@ namespace API.Controllers
             try
             {
                 var result = userService.Post(user);
-                return Ok();
+                return new OkObjectResult(result);
             }
             catch (System.Exception)
             {
