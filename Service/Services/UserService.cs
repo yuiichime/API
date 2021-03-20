@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Domain.Entities;
+using Infrastructure.CrossCutting.DTO;
 using Infrastructure.CrossCutting.Models;
 using Infrastructure.Data.Repository;
 using System;
@@ -25,6 +26,12 @@ namespace Service
             user.Password = sensitive ? user.Password = string.Empty : user.Password;
             return map.Map<User>(user);
         }
+        public User GetByLogin(string login, bool sensitive = true)
+        {
+            var user = repository.SelectBy(login);
+            user.Password = sensitive ? user.Password = string.Empty : user.Password;
+            return map.Map<User>(user);
+        }
 
         public IList<User> GetAll(bool sensitive = true)
         {
@@ -46,7 +53,7 @@ namespace Service
 
         }
 
-        public bool ValidateUser(UserEntity user)
+        public bool ValidateUser(AuthUser user)
         {
             var userData = repository.SelectBy(user.Login);
 
